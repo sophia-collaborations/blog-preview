@@ -13,11 +13,16 @@ my $cmdn;
 my $cont;
 my $dsfile;
 my $clean_gunk = 0;
+my @css_srcx = ();
 
 sub opto__f__do {
   $file_at = &argola::getrg();
   $file_set = 10;
 } &argola::setopt('-f',\&opto__f__do);
+
+sub opto__css__do {
+  @css_srcx = (@css_srcx,&argola::getrg());
+} &argola::setopt('-css',\&opto__css__do);
 
 sub opto__cln__do {
 } &argola::setopt('-cln',\&opto__cln__do);
@@ -92,6 +97,23 @@ print TAK '<style type="text/css">
 }
 </style>
 ';
+{
+  my $lc_a;
+  my $lc_b;
+  my $lc_cm;
+  foreach $lc_a (@css_srcx)
+  {
+    if ( -f $lc_a )
+    {
+      $lc_cm = "cat";
+      &wraprg::lst($lc_cm,$lc_a);
+      $lc_b = `$lc_cm`;
+      print TAK "<style type = \"text/css\">\n";
+      print TAK $lc_b;
+      print TAK "</style>\n";
+    }
+  }
+}
 print TAK "</head><body>\n";
 print TAK "<div align = \"center\">\n";
 print TAK "<table border = \"0\" width = \"700px\"><tr><td class = \"maino\">\n";
