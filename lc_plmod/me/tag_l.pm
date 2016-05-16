@@ -35,6 +35,29 @@ sub doit {
   $lc_src = $lc_dst;
   
   
+  # FIRST ROUND: The nofollow texted links
+  # https://skeptools.wordpress.com/2011/10/14/follow-up-nofollow-skeptics-hyperlinks-links-seo/
+  ($lc_dst,$lc_x1) = split(quotemeta('<bad>'),$lc_src,2);
+  $lc_src = $lc_x1;
+  
+  while ( $lc_src ne '' )
+  {
+    ($lc_x1,$lc_x2) = split(quotemeta('</bad>'),$lc_src,2);
+    if ( $lc_x1 ne '' )
+    {
+      ($lc_sga,$lc_sgb) = split(quotemeta('<l/>'),$lc_x1);
+      $lc_dst .= '<a href = "' . $lc_sga . '" target = "_blank" rel = "nofollow">';
+      $lc_dst .= $lc_sgb . '</a>';
+    }
+    ($lc_x1,$lc_src) = split(quotemeta('<lnk>'),$lc_x2,2);
+    $lc_dst .= $lc_x1;
+  }
+  
+  
+  # RESET CLAUSE:
+  $lc_src = $lc_dst;
+  
+  
   # SECOND ROUND: The simple links
   ($lc_dst,$lc_x1) = split(quotemeta('<l>'),$lc_src,2);
   $lc_src = $lc_x1;

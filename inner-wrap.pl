@@ -32,9 +32,11 @@ sub opto__cln__do {
 } &argola::setopt('-cln',\&opto__cln__do);
 
 sub opto__stx__do {
-  system("echo","Activating Intermedia");
+  #system("echo","Activating Intermedia");
   $show_intermedia = 10;
 } &argola::setopt('-stx',\&opto__stx__do);
+
+&argola::txt_help_opt('--help','help-file.txt');
 
 &argola::runopts();
 
@@ -116,12 +118,6 @@ if ( $show_intermedia < 5 )
   &wraprg::lst($cmdn,$dsfile);
   open TAK, $cmdn;
   print TAK "<html><head>\n";
-  print TAK '<style type="text/css">
-  .maino {
-  	font-size: 30px;
-  }
-  </style>
-  ';
   {
     my $lc_a;
     my $lc_b;
@@ -141,7 +137,10 @@ if ( $show_intermedia < 5 )
   }
   print TAK "</head><body>\n";
   print TAK "<div align = \"center\">\n";
-  print TAK "<table border = \"0\" width = \"700px\"><tr><td class = \"maino\">\n";
+  
+  #print TAK "<table border = \"0\" width = \"700px\"><tr><td class = \"maino\">\n";
+  print TAK "<table class = \"maino\"\"><tr><td class = \"maino\">\n";
+  
   print TAK $cont;
   print TAK "</td></tr></table>\n";
   print TAK "</div>\n";
