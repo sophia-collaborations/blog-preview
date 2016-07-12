@@ -1,4 +1,12 @@
 
+-cln
+	Clear this command's cache-directory before generating the preview
+	file. (Make sure you at least invoke this option once in a while,
+	or else a lot of expired stuff will accumulate -- and you really
+	shouldn't need to keep anything in this cache for long-term
+	reference, as if anything it should be the source-file that should
+	serve that purpose.)
+
 -css [filename]
 	Embed contents of file [filename] as a CSS stylesheet in output
 
@@ -16,3 +24,4 @@
 
 --help
 	Display this help message.
+
