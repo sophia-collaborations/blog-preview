@@ -112,8 +112,10 @@ sub swapo {
 $txcont = &me::tag_l::doit($cont);
 $cont = $txcont;
 
-while ( &swapo($cont,"\n<","<") ) { }
-while ( &swapo($cont,">\n",">") ) { }
+while ( &swapo($cont,"\n\n<","\n<") ) { }
+while ( &swapo($cont,">\n\n",">\n") ) { }
+while ( &swapo($cont,"\n<"," <") ) { }
+while ( &swapo($cont,">\n","> ") ) { }
 while ( &swapo($cont,"\n\n\n","\n\n") ) { }
 &swapo($cont,"\n","<br/>\n");
 
