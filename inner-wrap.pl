@@ -94,6 +94,7 @@ while ( -f $dsfile )
 
 sub swapo {
   my $lc_a;
+  my $lc_xa;
   my $lc_b;
   my $lc_c;
   
@@ -101,14 +102,19 @@ sub swapo {
   $lc_b = quotemeta($_[1]);
   $lc_c = $_[2];
   
+  $lc_xa = $lc_a;
   $lc_a =~ s/$lc_b/$lc_c/g;
   $_[0] = $lc_a;
-  return $lc_a;
+  return ($lc_a ne $lc_xa);
 }
 
 
 $txcont = &me::tag_l::doit($cont);
 $cont = $txcont;
+
+while ( &swapo($cont,"\n<","<") ) { }
+while ( &swapo($cont,">\n",">") ) { }
+while ( &swapo($cont,"\n\n\n","\n\n") ) { }
 &swapo($cont,"\n","<br/>\n");
 
 
