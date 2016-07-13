@@ -18,11 +18,21 @@ my $dstext;
 my $clean_gunk = 0;
 my @css_srcx = ();
 my $show_intermedia = 0;
+my $open_cont_folder = 0;
+my $open_cont_file = 0;
 
 sub opto__f__do {
   $file_at = &argola::getrg();
   $file_set = 10;
 } &argola::setopt('-f',\&opto__f__do);
+
+sub opto__dir__do {
+  $open_cont_folder = 10;
+} &argola::setopt('-dir',\&opto__dir__do);
+
+sub opto__edt__do {
+  $open_cont_file = 10;
+} &argola::setopt('-edt',\&opto__edt__do);
 
 sub opto__css__do {
   @css_srcx = (@css_srcx,&argola::getrg());
@@ -148,7 +158,11 @@ if ( $show_intermedia < 5 )
   close TAK;
   
   system("open",$dsfile);
+  if ( $open_cont_folder > 5 ) { system("open",$resdir); }
+  if ( $open_cont_file > 5 ) { system("edit",$dsfile); }
 }
+
+
 
 
 

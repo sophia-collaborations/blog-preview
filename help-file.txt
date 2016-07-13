@@ -10,6 +10,15 @@
 -css [filename]
 	Embed contents of file [filename] as a CSS stylesheet in output
 
+-dir
+	Open the directory where this command places the files that it
+	generates.
+
+-edt
+	Open the end-product HTML file in the editor in addition to the
+	browser. (This option exists is in case you need to do some HTML
+	touch-up before sending the file to someone.)
+
 -f [filename]
 	The file [filename] is the file for which you are generating a blog
 	preview.
