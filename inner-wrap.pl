@@ -104,6 +104,29 @@ if ( $show_intermedia < 5 )
   @lc_a = split(quotemeta('<!-- stop blog-preview -->'),$cont);
   $cont = $lc_a[0];
   
+  # Now allow triple-parantheses in lieu of fish-tags
+  &swapo($cont,'(((','<');
+  while( &swapo($cont,'<(','(<') ) { }
+  &swapo($cont,')))','>');
+  while( &swapo($cont,')>','>)') ) { }
+  
+  # And only after that, filter out the '<x/>' tags:
+  &swapo($cont,'<x/>','');
+  
+  # BEGIN PROCESSING SPECIAL TAGS FOR ARTICLE ELEMENTS:
+  &swapo($cont,'<title>','<div class = "my_article_title">');
+  &swapo($cont,'</title>','</div>');
+  &swapo($cont,'<fullcont>','<div class = "my_fullcont">');
+  &swapo($cont,'</fullcont>','</div>');
+  &swapo($cont,'<precap>','<div class = "my_precap">');
+  &swapo($cont,'</precap>','</div>');
+  &swapo($cont,'<undivided>','<div class = "my_cont_undivided">');
+  &swapo($cont,'</undivided>','</div>');
+  
+  # And now the span-types
+  &swapo($cont,'<key>','<span class = "my_keypoint">');
+  &swapo($cont,'</key>','</span>');
+  
   &downtags();
 }
 
