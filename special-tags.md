@@ -14,7 +14,7 @@ The "bad" tag is identical to the "lnk" tag, except that it inserts the "rel" va
 of "nofollow". Use this tag to reference a specific page who's search-engine rankings
 you want to avoid helping.
 
-# The "x" tag
+## The "x" tag
 
     <x/>
 
