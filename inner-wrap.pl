@@ -94,16 +94,7 @@ while ( -f $dsfile )
   $cont = $lc_a->[0];
   &swapo($cont,'<contents/>',$lc_a->[1]);
 }
-if ( $show_intermedia < 5 )
 {
-  my @lc_a;
-  
-  @lc_a = split(quotemeta('<!-- start blog-preview -->'),$cont,2);
-  if ( $lc_a[1] ne '' ) { $cont = $lc_a[1]; }
-  
-  @lc_a = split(quotemeta('<!-- stop blog-preview -->'),$cont);
-  $cont = $lc_a[0];
-  
   # Now allow triple-parantheses in lieu of fish-tags
   &swapo($cont,'(((','<');
   while( &swapo($cont,'<(','(<') ) { }
@@ -116,8 +107,8 @@ if ( $show_intermedia < 5 )
   # BEGIN PROCESSING SPECIAL TAGS FOR ARTICLE ELEMENTS:
   &swapo($cont,'<title>','<div class = "my_article_title">');
   &swapo($cont,'</title>','</div>');
-  &swapo($cont,'<fullcont>','<div class = "my_fullcont">');
-  &swapo($cont,'</fullcont>','</div>');
+  &swapo($cont,'<fullcont>','<!-- start cpp --><div class = "my_fullcont">');
+  &swapo($cont,'</fullcont>','</div><!-- stop cpp -->');
   &swapo($cont,'<precap>','<div class = "my_precap">');
   &swapo($cont,'</precap>','</div>');
   &swapo($cont,'<undivided>','<div class = "my_cont_undivided">');
@@ -126,6 +117,18 @@ if ( $show_intermedia < 5 )
   # And now the span-types
   &swapo($cont,'<key>','<span class = "my_keypoint">');
   &swapo($cont,'</key>','</span>');
+  &swapo($cont,'<em>','<span class = "my_em_words">');
+  &swapo($cont,'</em>','</span>');
+}
+if ( $show_intermedia < 5 )
+{
+  my @lc_a;
+  
+  @lc_a = split(quotemeta('<!-- start blog-preview -->'),$cont,2);
+  if ( $lc_a[1] ne '' ) { $cont = $lc_a[1]; }
+  
+  @lc_a = split(quotemeta('<!-- stop blog-preview -->'),$cont);
+  $cont = $lc_a[0];
   
   &downtags();
 }
@@ -184,6 +187,18 @@ sub downtags {
 
 while ( &swapo($cont,"\n\n\n","\n\n") ) { }
 &swapo($cont,"\n","<br/>\n");
+
+
+# Now -- highlight the copy-paste sections:
+&finalight($txcont);
+&finalight($cont);
+sub finalight {
+  my $lc_cont;
+  $lc_cont = $_[0];
+  &swapo($lc_cont,'<!-- start cpp -->',("\n\n\n" . '<!-- START COPY/PASTE SECTION ON NEXT LINE -->' . "\n\n\n"));
+  &swapo($lc_cont,'<!-- stop cpp -->',("\n\n\n" . '<!-- STOP COPY/PASTE SECTION ON PREVIOUS LINE -->' . "\n\n\n"));
+  $_[0] = $lc_cont;
+}
 
 
 if ( $show_intermedia > 5 )
