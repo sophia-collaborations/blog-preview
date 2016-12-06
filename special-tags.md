@@ -1,5 +1,10 @@
 # Some Special Tags in This System
 
+Remember - these tags are not processed by any actual XML processor.
+Rather, it is simpler PERL functions. Hence, these tags do not have
+any XML-type parameters - and a superfluous space within a tag can
+make it unrecognizable to the parser.
+
 ## The "lnk" tag
 
     <lnk>http://some.where<l/>A link to somewhere</lnk>
@@ -13,6 +18,30 @@ configured) to the URL "http://some.where".
 The "bad" tag is identical to the "lnk" tag, except that it inserts the "rel" value
 of "nofollow". Use this tag to reference a specific page who's search-engine rankings
 you want to avoid helping.
+
+## The "l" tags
+
+There are two kinds of "l" tags.
+
+### The first kind of "l" tag
+
+The first is the self-contained "l" tag as
+follows:
+
+    <l/>
+
+This tag is used between "lnk" tags as well as between "bad" tags to
+indicate where the URL that a link directs to ends and the text of
+the link begins.
+
+### The second kind of "l" tag
+
+The other is the separate "l" tags -- as follows:
+
+    <l>http://some.where</l>
+
+These kinds of "l" tags represent a link who's link-text is none other
+than the URL it links to.
 
 ## The "x" tag
 

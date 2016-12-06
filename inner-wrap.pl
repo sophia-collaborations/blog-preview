@@ -113,6 +113,13 @@ while ( -f $dsfile )
   &swapo($cont,'</precap>','</div>');
   &swapo($cont,'<undivided>','<div class = "my_cont_undivided">');
   &swapo($cont,'</undivided>','</div>');
+  &sdivtag($cont,'sect','my_sect_frame');
+  &sdivtag($cont,'stitle','my_sect_title');
+  &sdivtag($cont,'sbody','my_sect_body');
+  &sdivtag($cont,'intro','my_msect_intro'); # Introduction to Multi-Section Articles
+  &sdivtag($cont,'excr','excrp_frame'); # Excerpt (the frame thereof)
+  &sdivtag($cont,'extx','excrp_main'); # Excerpt text
+  &sdivtag($cont,'exat','excrp_attrib'); # Excerpt attribution
   
   # And now the span-types
   &swapo($cont,'<key>','<span class = "my_keypoint">');
@@ -156,6 +163,16 @@ sub swapo {
   $lc_a =~ s/$lc_b/$lc_c/g;
   $_[0] = $lc_a;
   return ($lc_a ne $lc_xa);
+}
+
+
+sub sdivtag {
+  my $lc_cn = $_[0];
+  
+  &swapo($lc_cn,('<' . $_[1] . '>'),('<div class = "' . $_[2] . '">'));
+  &swapo($lc_cn,('</' . $_[1] . '>'),('</div>'));
+  
+  $_[0] = $lc_cn;
 }
 
 
