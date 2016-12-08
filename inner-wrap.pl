@@ -139,6 +139,10 @@ if ( $show_intermedia < 5 )
   
   &downtags();
 }
+{
+  &swapo($cont,'<tags>',('<div class = "my_blog_tags">' . "\n\n"));
+  &swapo($cont,'</tags>',("\n\n" . '</div>'));
+}
 
 $txcont = &me::tag_l::doit($cont);
 $cont = $txcont;
