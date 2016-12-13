@@ -120,6 +120,7 @@ while ( -f $dsfile )
   &sdivtag($cont,'excr','excrp_frame'); # Excerpt (the frame thereof)
   &sdivtag($cont,'extx','excrp_main'); # Excerpt text
   &sdivtag($cont,'exat','excrp_attrib'); # Excerpt attribution
+  &spantag($cont,'doctitle','dctitle'); # Title of a document or other such work
   
   # And now the span-types
   &swapo($cont,'<key>','<span class = "my_keypoint">');
@@ -180,6 +181,16 @@ sub sdivtag {
 }
 
 
+sub spantag {
+  my $lc_cn = $_[0];
+  
+  &swapo($lc_cn,('<' . $_[1] . '>'),('<span class = "' . $_[2] . '">'));
+  &swapo($lc_cn,('</' . $_[1] . '>'),('</span>'));
+  
+  $_[0] = $lc_cn;
+}
+
+
 
 
 sub downtags {
@@ -194,6 +205,8 @@ sub downtags {
   &iswp($lc_x,"</lnk>","</lnk>l");
   &iswp($lc_x,"<bad>","l<bad>");
   &iswp($lc_x,"</bad>","</bad>l");
+  &iswp($lc_x,"<fdload>","l<fdload>");
+  &iswp($lc_x,"</fdload>","</fdload>l");
   &iswp($lc_x,"<span","l<span");
   &iswp($lc_x,"</span>","</span>l");
   
