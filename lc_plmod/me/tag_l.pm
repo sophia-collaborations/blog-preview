@@ -69,7 +69,7 @@ sub doit {
     if ( $lc_x1 ne '' )
     {
       ($lc_sga,$lc_sgb) = split(quotemeta('<l/>'),$lc_x1);
-      $lc_dst .= '<a href = "' . $lc_sga . '">';
+      $lc_dst .= '<a href = "' . $lc_sga . '" download>';
       $lc_dst .= $lc_sgb . '</a>';
     }
     ($lc_x1,$lc_src) = split(quotemeta('<fdload>'),$lc_x2,2);

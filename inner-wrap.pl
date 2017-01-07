@@ -121,6 +121,7 @@ while ( -f $dsfile )
   &sdivtag($cont,'extx','excrp_main'); # Excerpt text
   &sdivtag($cont,'exat','excrp_attrib'); # Excerpt attribution
   &spantag($cont,'doctitle','dctitle'); # Title of a document or other such work
+  &sdivtag($cont,'note','rt_note_box'); # A note embedded in the article about the article itself
   
   # And now the span-types
   &swapo($cont,'<key>','<span class = "my_keypoint">');
