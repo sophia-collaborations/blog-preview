@@ -113,6 +113,9 @@ while ( -f $dsfile )
   &swapo($cont,'</precap>','</div>');
   &swapo($cont,'<undivided>','<div class = "my_cont_undivided">');
   &swapo($cont,'</undivided>','</div>');
+  
+  &sdivtag($cont,'listhead','my_list_head');
+  
   &sdivtag($cont,'sect','my_sect_frame');
   &sdivtag($cont,'stitle','my_sect_title');
   &sdivtag($cont,'sbody','my_sect_body');
