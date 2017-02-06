@@ -113,6 +113,17 @@ while ( -f $dsfile )
   &swapo($cont,'</precap>','</div>');
   &swapo($cont,'<undivided>','<div class = "my_cont_undivided">');
   &swapo($cont,'</undivided>','</div>');
+  &swapo($cont,'<divided>','<div class = "my_cont_divided">');
+  &swapo($cont,'</divided>','</div>');
+  
+  # Every <sect_h/> section is supposed to be followed by a <sect_b/> section
+  # and every <sect_b/> section is supposed to be preceded by a <sect_h/> section.
+  # These represent the header-section and body-section of sub-sections of segmented
+  # articles.
+  &swapo($cont,'<sect_h>','<div class = "sect_a"><div class = "sect_h">');
+  &swapo($cont,'</sect_h>','</div>');
+  &swapo($cont,'<sect_b>','<div class = "sect_b">');
+  &swapo($cont,'</sect_b>','</div></div>');
   
   &sdivtag($cont,'listhead','my_list_head');
   
@@ -125,6 +136,7 @@ while ( -f $dsfile )
   &sdivtag($cont,'exat','excrp_attrib'); # Excerpt attribution
   &spantag($cont,'doctitle','dctitle'); # Title of a document or other such work
   &sdivtag($cont,'note','rt_note_box'); # A note embedded in the article about the article itself
+  &sdivtag($cont,'beginning','my_cont_beginning'); # The beginning section of a segmented article
   
   # And now the span-types
   &swapo($cont,'<key>','<span class = "my_keypoint">');
