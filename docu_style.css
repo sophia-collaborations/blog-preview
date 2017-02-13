@@ -1,0 +1,51 @@
+
+table.the_table {
+	//border: 1px solid black;
+}
+
+td.the_head {
+	border: 1px solid black;
+	text-align: center;
+	font-size: 200%;
+	padding: 10px;
+}
+
+td.c_head {
+	border: 1px solid black;
+	text-align: center;
+	padding: 10px;
+}
+
+td.cname {
+	border: 1px solid black;
+	padding: 10px;
+}
+
+td.etype {
+	border: 1px solid black;
+	padding: 10px;
+}
+
+td.expln {
+	border: 1px solid black;
+	padding: 10px;
+}
+
+span.crucial {
+	font-weight: bold;
+}
+
+span.clsrf {
+	color: #BB2222;
+}
+
+span.clsrf::before {
+	color: #2222BB;
+	content: "[";
+}
+
+span.clsrf::after {
+	color: #2222BB;
+	content: "]";
+}
+
