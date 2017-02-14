@@ -8,6 +8,40 @@
 <tr><td colspan = "3" class = "the_head">Classes of &lt;blog-preview&gt; Command Output</td></tr>
 <tr><td class = "c_head">Class</td><td class = "c_head">Element Type</td><td class = "c_head">Description</td></tr>
 
+<tr><td class = "cname">dctitle</td>
+<td class = "etype">span</td>
+<td class = "expln">
+This class highlights the name of a book, a movie, of another article,
+of another blog, etcetera.
+</td></tr>
+
+<tr><td class = "cname">excrp_attrib</td>
+<td class = "etype">div</td>
+<td class = "expln">
+This element, which is within a <span class = "clsrf">excrp_frame</span> element,
+contains one line of attribution of a section of quoted text.
+For example, the first element of this type in a <span class = "clsrf">excrp_frame</span> may
+specify the name by which the person to whom the passage is attributed to is known,
+and the next element of this type may name the work from which the passage is taken.
+</td></tr>
+
+<tr><td class = "cname">excrp_frame</td>
+<td class = "etype">div</td>
+<td class = "expln">
+This element covers both the content and attribution of
+a quoted passage of text.
+<br/><br/>
+The contents of this element are one <span class = "clsrf">excrp_main</span>
+element, followed by one-or-more <span class = "clsrf">excrp_attrib</span> elements.
+</td></tr>
+
+<tr><td class = "cname">excrp_main</td>
+<td class = "etype">div</td>
+<td class = "expln">
+This element, which is within a <span class = "clsrf">excrp_frame</span> element,
+contains the actual content of a quoted passage of text.
+</td></tr>
+
 <tr><td class = "cname">my_cont_beginning</td>
 <td class = "etype">div</td>
 <td class = "expln">
@@ -30,12 +64,41 @@ articles that are divided into smaller segments, each with their own title</span
 The equivalent class for articles that are not segmented is <span class = "clsrf">my_cont_undivided</span>.
 </td></tr>
 
+<tr><td class = "cname">my_cont_undivided</td>
+<td class = "etype">div</td>
+<td class = "expln">
+For an article that has is not divided into segments, this class is used
+instead of <span class = "clsrf">my_cont_divided</span>.
+</td></tr>
+
+<tr><td class = "cname">my_em_words</td>
+<td class = "etype">span</td>
+<td class = "expln">
+This class highlights a word or phrase that is stressed <em>within</em> a sentence.
+Some literati have the view that it is unbecoming of a writer to enshrine in
+writing this aspect of language --- no matter how much it can completely change
+the meaning of a sentence in spoken language.
+Anyone who follows this rule will probably not use this element.
+<br/><br/>
+However - while the view of this literati is to be respected with regards to those who
+choose to follow it -- it shouldn't be enforced on those who dissent from it.
+For this reason, this style class should still be defined.
+</td></tr>
+
 <tr><td class = "cname">my_fullcont</td>
 <td class = "etype">div</td>
 <td class = "expln">
 This class surrounds the entire textual content of the article.
 No - it does not surround the blog-tags - nor does it surround the title --
 but surrounds everything that gets inserted as the article text -- including the precap.
+</td></tr>
+
+<tr><td class = "cname">my_keypoint</td>
+<td class = "etype">span</td>
+<td class = "expln">
+This class highlights a section of text that must be especially stressed.
+For example -- it can highlight a sentence describing a concept that the
+author is specifically concerned about the reader overlooking.
 </td></tr>
 
 <tr><td class = "cname">my_precap</td>
@@ -46,13 +109,51 @@ be an opening summary of what the article is about -- so that readers can decide
 or not this article is one that they want to focus on. This class covers that section.
 </td></tr>
 
+<tr><td class = "cname">rt_note_box</td>
+<td class = "etype">div</td>
+<td class = "expln">
+This element highlights a note about the article itself - specifically about
+it's publication history.
+For example - if a crucial thing in the article has been changed since
+it's original publication, it may be desired to insert a note of this kind
+to this effect.
+<br/><br/>
+For another example, if an article is cross-posted on multiple blogs,
+each location of the article may have an element of this type after the
+<span class = "clsrf">my_precap</span> but be fore
+<span class = "clsrf">my_cont_divided</span> or the
+<span class = "clsrf">my_cont_undivided</span> pointing to the other
+locations of the article (one of the few occasions when it is okay
+to have something other than <span class = "clsrf">my_precap</span>,
+<span class = "clsrf">my_cont_divided</span>, or <span class = "clsrf">my_cont_undivided</span>
+directly within the <span class = "clsrf">my_fullcont</span> element).
+</td></tr>
+
+<tr><td class = "cname">sect_a</td>
+<td class = "etype">div</td>
+<td class = "expln">
+In segmented articles (that is, those that use <span class = "clsrf">my_cont_divided</span>)
+this class covers an entire regular segment of the article (that is, any segment
+within the <span class = "clsrf">my_cont_divided</span> except for the <span class = "clsrf">my_cont_beginning</span>).
+<br/><br/>
+This class covers the entire segment -- both the segment-title and the segment-text.
+</td></tr>
+
+<tr><td class = "cname">sect_b</td>
+<td class = "etype">div</td>
+<td class = "expln">
+Within a <span class = "clsrf">sect_a</span> segment - this class covers only the content part of the segment -- that is, everything <em>except</em> for the title.
+</td></tr>
+
+<tr><td class = "cname">sect_h</td>
+<td class = "etype">div</td>
+<td class = "expln">
+Within a <span class = "clsrf">sect_a</span> segment - this class covers only the title of the segment. (Needless to say, this part must come before the <span class = "clsrf">sect_b</span> part.)
+</td></tr>
+
 <!-- SORTED UP TO HERE -->
 
-<tr><td class = "cname">xx</td>
-<td class = "etype">xx</td>
-<td class = "expln">
-xxxxxxxxx
-</td></tr>
+<!-- VISIBLE UP TO HERE
 
 <tr><td class = "cname">xx</td>
 <td class = "etype">xx</td>
@@ -72,28 +173,22 @@ xxxxxxxxx
 xxxxxxxxx
 </td></tr>
 
-<tr><td class = "cname">xx</td>
-<td class = "etype">xx</td>
-<td class = "expln">
-xxxxxxxxx
-</td></tr>
+-->
 
-<tr><td class = "cname">xx</td>
-<td class = "etype">xx</td>
-<td class = "expln">
-xxxxxxxxx
-</td></tr>
-
-<tr><td class = "cname">xx</td>
-<td class = "etype">xx</td>
-<td class = "expln">
-xxxxxxxxx
-</td></tr>
-
-<tr><td class = "cname">xx</td>
-<td class = "etype">xx</td>
-<td class = "expln">
-xxxxxxxxx
+<tr><td colspan = "3" class = "moreinf">
+In the output of this program - every &lt;a&gt; tag with an "href" value
+will also have a "target" value of "_blank" so that the link will automatically open
+in a separate window or tab - allowing the reader to more easily return
+to the current article after reading whatever has been referenced - and
+without loosing place.
+<br/><br/>
+If the link leads to an article, video, or other such resource
+that is frowned upon, but still must be linked to for the sake
+of reference -- then the tag will also contain a "rel" field
+with a value of "nofollow".
+The reason for that is detailed in the blog article who's URL follows:
+<br/><br/>
+<a href = "http://sshapira.com/myblog/2016/07/11/how-to-avoid-helping-the-sites-you-denounce/" target = "_blank">http://sshapira.com/myblog/2016/07/11/how-to-avoid-helping-the-sites-you-denounce/</a>
 </td></tr>
 
 </table>

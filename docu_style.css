@@ -49,3 +49,14 @@ span.clsrf::after {
 	content: "]";
 }
 
+td.moreinf {
+	border: 1px solid black;
+	padding: 10px;
+}
+
+td.moreinf::before {
+	color: #2222BB;
+	content: "Another note: ";
+	font-weight: bold;
+}
+
