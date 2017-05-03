@@ -135,6 +135,7 @@ while ( -f $dsfile )
   &sdivtag($cont,'extx','excrp_main'); # Excerpt text
   &sdivtag($cont,'exat','excrp_attrib'); # Excerpt attribution
   &spantag($cont,'doctitle','dctitle'); # Title of a document or other such work
+  &spantag($cont,'trm','my_spcl_term'); # A special term being emphasized
   &sdivtag($cont,'note','rt_note_box'); # A note embedded in the article about the article itself
   &sdivtag($cont,'beginning','my_cont_beginning'); # The beginning section of a segmented article
   
