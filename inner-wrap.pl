@@ -105,8 +105,8 @@ while ( -f $dsfile )
   &swapo($cont,'<x/>','');
   
   # BEGIN PROCESSING SPECIAL TAGS FOR ARTICLE ELEMENTS:
-  &swapo($cont,'<title>','<div class = "my_article_title">');
-  &swapo($cont,'</title>','</div>');
+  &swapo($cont,'<title>',('<div class = "my_article_title">' . "\n\n"));
+  &swapo($cont,'</title>',("\n\n" . '</div>'));
   &swapo($cont,'<fullcont>','<!-- start cpp --><div class = "my_fullcont">');
   &swapo($cont,'</fullcont>','</div><!-- stop cpp -->');
   &swapo($cont,'<precap>','<div class = "my_precap">');
