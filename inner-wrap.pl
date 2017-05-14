@@ -4,6 +4,7 @@ use argola;
 use wraprg;
 use me::tag_l;
 use me::tag_cn;
+use dateelem;
 #use chobinfodig;
 
 my $zan;
@@ -166,9 +167,13 @@ $txcont = &me::tag_l::doit($cont);
 $cont = $txcont;
 
 sub filaset {
- $zan = &chobak_date::new();
- $dsfile = $resdir . '/by-' . $zan->stamp() . '.html';
- $dstext = $resdir . '/by-' . $zan->stamp() . '.txt';
+  my $lc_src;
+  #$zan = &chobak_date::new();
+  #$dsfile = $resdir . '/by-' . $zan->stamp() . '.html';
+  #$dstext = $resdir . '/by-' . $zan->stamp() . '.txt';
+  $lc_src = &dateelem::asem([['lib','date_stamp_dshcode']]);
+  $dsfile = $resdir . '/by-' . $lc_src . '.html';
+  $dstext = $resdir . '/by-' . $lc_src . '.txt';
 }
 
 sub swapo {
