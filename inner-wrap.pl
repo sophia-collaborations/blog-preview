@@ -302,7 +302,9 @@ if ( $show_intermedia < 5 )
   print TAK "\n</body></html>\n";
   close TAK;
   
-  system("open",$dsfile);
+  #system("open",$dsfile);
+  system("chobakwrap","-sub","browseropen",$dsfile);
+  
   if ( $open_cont_folder > 5 ) { system("open",$resdir); }
   if ( $open_cont_file > 5 ) { system("edit",$dsfile); }
 }
