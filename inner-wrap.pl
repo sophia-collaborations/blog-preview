@@ -177,7 +177,15 @@ sub filaset {
   #$zan = &chobak_date::new();
   #$dsfile = $resdir . '/by-' . $zan->stamp() . '.html';
   #$dstext = $resdir . '/by-' . $zan->stamp() . '.txt';
-  $lc_src = &dateelem::asem([['lib','date_stamp_dshcode']]);
+
+  # For some reason, the more portable implementation
+  # stopped working -- so I'll have to revert (for now)
+  # to the version of that line that is specific to
+  # systems with full-featured versions of the 'date'
+  # command.
+  #$lc_src = &dateelem::asem([['lib','date_stamp_dshcode']]);
+  $lc_src = `date +%Y-%m-%d-%H%M%S`; chomp($lc_src);
+
   $dsfile = $resdir . '/by-' . $lc_src . '.html';
   $dstext = $resdir . '/by-' . $lc_src . '.txt';
 }
