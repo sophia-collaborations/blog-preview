@@ -139,6 +139,12 @@ while ( -f $dsfile )
   &spantag($cont,'trm','my_spcl_term'); # A special term being emphasized
   &sdivtag($cont,'note','rt_note_box'); # A note embedded in the article about the article itself
   &sdivtag($cont,'beginning','my_cont_beginning'); # The beginning section of a segmented article
+
+
+  # And Now for the Credits
+  &sdivtag($cont,'credits','sect_credits');
+  &sdivtag($cont,'credit','each_credit');
+
   
   # And now the span-types
   &swapo($cont,'<key>','<span class = "my_keypoint">');
@@ -273,6 +279,7 @@ if ( $show_intermedia < 5 )
   &wraprg::lst($cmdn,$dsfile);
   open TAK, $cmdn;
   print TAK "<html><head>\n";
+  print TAK '<meta charset="UTF-8">' . "\n";
   {
     my $lc_a;
     my $lc_b;

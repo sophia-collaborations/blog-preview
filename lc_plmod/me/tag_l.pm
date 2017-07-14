@@ -23,6 +23,11 @@ sub doit {
     if ( $lc_x1 ne '' )
     {
       ($lc_sga,$lc_sgb) = split(quotemeta('<l/>'),$lc_x1);
+
+      # This argument for cases where there
+      # is no <l/> between <lnk> and </lnk>
+      if ( $lc_sga eq $lc_x1 ) { $lc_sgb = $lc_sga; }
+
       $lc_dst .= '<a href = "' . $lc_sga . '" target = "_blank">';
       $lc_dst .= $lc_sgb . '</a>';
     }
