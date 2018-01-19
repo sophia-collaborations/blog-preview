@@ -106,6 +106,11 @@ while ( -f $dsfile )
   &swapo($cont,'<x/>','');
   
   # BEGIN PROCESSING SPECIAL TAGS FOR ARTICLE ELEMENTS:
+  if ( $show_intermedia < 5 )
+  {
+    &swapo($cont,"\n<iframe","\n <iframe");
+    &swapo($cont,"iframe>\n","iframe> \n");
+  }
   &swapo($cont,'<title>',('<div class = "my_article_title">' . "\n\n"));
   &swapo($cont,'</title>',("\n\n" . '</div>'));
   &swapo($cont,'<fullcont>','<!-- start cpp --><div class = "my_fullcont">');
@@ -257,6 +262,14 @@ sub downtags {
 
 while ( &swapo($cont,"\n\n\n","\n\n") ) { }
 &swapo($cont,"\n","<br/>\n");
+
+
+
+if ( $show_intermedia < 5 )
+{
+  &swapo($cont,"\n <iframe","\n<iframe");
+  &swapo($cont,"iframe> \n","iframe>\n");
+}
 
 
 # Now -- highlight the copy-paste sections:
