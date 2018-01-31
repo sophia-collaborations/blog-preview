@@ -117,6 +117,8 @@ while ( -f $dsfile )
   &swapo($cont,'</fullcont>','</div><!-- stop cpp -->');
   &swapo($cont,'<precap>','<div class = "my_precap">');
   &swapo($cont,'</precap>','</div>');
+  &swapo($cont,'<altlink>','<div class = "my_linktext">');
+  &swapo($cont,'</altlink>','</div>');
   &swapo($cont,'<undivided>','<div class = "my_cont_undivided">');
   &swapo($cont,'</undivided>','</div>');
   &swapo($cont,'<divided>','<div class = "my_cont_divided">');
