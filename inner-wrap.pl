@@ -134,6 +134,9 @@ while ( -f $dsfile )
   &swapo($cont,'</sect_b>','</div></div>');
   
   &sdivtag($cont,'listhead','my_list_head');
+
+  &sdivtag($cont,'stansa','my_verse_stan_1');
+  &sdivtag($cont,'poeml','my_verse_line_1');
   
   &sdivtag($cont,'sect','my_sect_frame');
   &sdivtag($cont,'stitle','my_sect_title');
