@@ -89,3 +89,39 @@ text, enclose it in this element.
 This will be replaced with a "span" element of class
 "my\_keypoint".
 
+## Tags of the Psalms
+
+### The "psalm" tag
+This tag encases a psalm -- and is used instead of the "divided"
+or "undivided" tag if the psalm is the entirety of the post.
+
+### The "psalmbgn" tag
+This tag is an alternative to the "psalm" tag when you are
+not publishing a full psalm, but the mere beginning of the psalm
+as a teaser. The closing-tag of this element will be followed
+by the opening-tag of an "altlink" element.
+
+### Tags for enclosing psalms.
+Within a "psalm" tag, everything must be part of a stansa.
+A psalm can have any number of stansas, but each one must be
+enclosed in a tag for enclosing a psalm's stansa.
+Even those psalms that begin with a line or so explaining
+what the psalm is about or it's source, that too must be
+enclosed in a stansa-appropriate tag.
+
+#### The "pstans1" tag
+For the typical stansa of a psalm. Generally, no stansa-wide indentation.
+
+### Tags for enclosing lines within a psalm.
+Text is also not to be out in the open within a stansa,
+but must be part of a line.
+Each line must be tag-enclosed to with a tag that
+specifies what kind of line it is.
+
+#### The "pvra1" tag
+This is for lines that have no indentation beyond that of the stansa and which, in the case of responsive readings, are read by all participants.
+
+#### The "pvrh1" tag
+This is for lines that have no indentation beyond that of the stansa and which, in the case of responsive readings, are read only by the cantor.
+
+

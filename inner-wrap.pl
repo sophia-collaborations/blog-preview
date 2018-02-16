@@ -151,6 +151,13 @@ while ( -f $dsfile )
   &sdivtag($cont,'beginning','my_cont_beginning'); # The beginning section of a segmented article
 
 
+  # Added for accommodating the Psalms
+  &sdivtag($cont,'psalm','psalm_text');
+  &sdivtag($cont,'psalmbgn','psalm_bgn_text');
+  &sdivtag($cont,'pstans1','stansa1');
+  &sdivtag($cont,'pvra1','versea1');
+  &sdivtag($cont,'pvrh1','verseh1');
+
   # And Now for the Credits
   &sdivtag($cont,'credits','sect_credits');
   &sdivtag($cont,'credit','each_credit');
