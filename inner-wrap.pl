@@ -157,6 +157,8 @@ while ( -f $dsfile )
   &sdivtag($cont,'pstans1','stansa1');
   &sdivtag($cont,'pvra1','versea1');
   &sdivtag($cont,'pvrh1','verseh1');
+  &sdivtag($cont,'pvra2','versea2');
+  &sdivtag($cont,'pvrh2','verseh2');
 
   # And Now for the Credits
   &sdivtag($cont,'credits','sect_credits');
