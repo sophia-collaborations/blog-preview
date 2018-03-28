@@ -4,6 +4,7 @@ use argola;
 use wraprg;
 use me::tag_l;
 use me::tag_cn;
+use me::tag_ytclip;
 use dateelem;
 #use chobinfodig;
 
@@ -189,6 +190,9 @@ if ( $show_intermedia < 5 )
 }
 
 $txcont = &me::tag_l::doit($cont);
+$cont = $txcont;
+
+$txcont = &me::tag_ytclip::doit($cont);
 $cont = $txcont;
 
 sub filaset {
