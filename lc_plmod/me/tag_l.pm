@@ -28,7 +28,7 @@ sub doit {
       # is no <l/> between <lnk> and </lnk>
       if ( $lc_sga eq $lc_x1 ) { $lc_sgb = $lc_sga; }
 
-      $lc_dst .= '<a href = "' . $lc_sga . '" target = "_blank">';
+      $lc_dst .= '<a href = "' . $lc_sga . '" target = "_blank" rel = "noopener">';
       $lc_dst .= $lc_sgb . '</a>';
     }
     ($lc_x1,$lc_src) = split(quotemeta('<lnk>'),$lc_x2,2);
@@ -51,7 +51,7 @@ sub doit {
     if ( $lc_x1 ne '' )
     {
       ($lc_sga,$lc_sgb) = split(quotemeta('<l/>'),$lc_x1);
-      $lc_dst .= '<a href = "' . $lc_sga . '" target = "_blank" rel = "nofollow">';
+      $lc_dst .= '<a href = "' . $lc_sga . '" target = "_blank" rel = "nofollow noopener">';
       $lc_dst .= $lc_sgb . '</a>';
     }
     ($lc_x1,$lc_src) = split(quotemeta('<bad>'),$lc_x2,2);
