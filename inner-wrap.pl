@@ -173,6 +173,8 @@ while ( -f $dsfile )
   &swapo($cont,'</em>','</span>');
   &swapo($cont,'<inlq>','<span class = "my_inl_quot">');
   &swapo($cont,'</inlq>','</span>');
+  &swapo($cont,'<voca>','<span class = "my_vocab">');
+  &swapo($cont,'</voca>','</span>');
 }
 if ( $show_intermedia < 5 )
 {
