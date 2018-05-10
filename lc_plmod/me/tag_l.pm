@@ -1,5 +1,6 @@
 package me::tag_l;
 use strict;
+use me::tag_bibit;
 
 sub doit {
   my $lc_src;
@@ -55,6 +56,49 @@ sub doit {
       $lc_dst .= $lc_sgb . '</a>';
     }
     ($lc_x1,$lc_src) = split(quotemeta('<bad>'),$lc_x2,2);
+    $lc_dst .= $lc_x1;
+  }
+  
+  
+  # RESET CLAUSE:
+  $lc_src = $lc_dst;
+
+
+  # ANOTHER ROUND: <bibr> tag:
+  ($lc_dst,$lc_x1) = split(quotemeta('<bibr>'),$lc_src,2);
+  $lc_src = $lc_x1;
+  
+  while ( $lc_src ne '' )
+  {
+    ($lc_x1,$lc_x2) = split(quotemeta('</bibr>'),$lc_src,2);
+    if ( $lc_x1 ne '' )
+    {
+      #($lc_sga,$lc_sgb) = split(quotemeta('<l/>'),$lc_x1);
+      #$lc_dst .= '<a href = "' . $lc_sga . '" target = "_blank" rel = "nofollow noopener">';
+      #$lc_dst .= $lc_sgb . '</a>';
+      $lc_dst .= '[<a href = "#bibref_' . $lc_x1 . '_x">*' . $lc_x1 . '</a>]';
+    }
+    ($lc_x1,$lc_src) = split(quotemeta('<bibr>'),$lc_x2,2);
+    $lc_dst .= $lc_x1;
+  }
+  
+  
+  # RESET CLAUSE:
+  $lc_src = $lc_dst;
+
+
+  # ANOTHER ROUND: <bibit> tag:
+  ($lc_dst,$lc_x1) = split(quotemeta('<bibit>'),$lc_src,2);
+  $lc_src = $lc_x1;
+  
+  while ( $lc_src ne '' )
+  {
+    ($lc_x1,$lc_x2) = split(quotemeta('</bibit>'),$lc_src,2);
+    if ( $lc_x1 ne '' )
+    {
+      $lc_dst .= &me::tag_bibit::converto($lc_x1);
+    }
+    ($lc_x1,$lc_src) = split(quotemeta('<bibit>'),$lc_x2,2);
     $lc_dst .= $lc_x1;
   }
   

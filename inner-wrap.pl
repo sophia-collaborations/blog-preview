@@ -118,6 +118,8 @@ while ( -f $dsfile )
   &swapo($cont,'</fullcont>','</div><!-- stop cpp -->');
   &swapo($cont,'<precap>','<div class = "my_precap">');
   &swapo($cont,'</precap>','</div>');
+  &swapo($cont,'<biblio>','<div class = "my_biblio">');
+  &swapo($cont,'</biblio>','</div>');
   &swapo($cont,'<altlink>','<div class = "my_linktext">');
   &swapo($cont,'</altlink>','</div>');
   &swapo($cont,'<undivided>','<div class = "my_cont_undivided">');
@@ -268,10 +270,14 @@ sub downtags {
   &iswp($lc_x,"</lnk>","</lnk>l");
   &iswp($lc_x,"<bad>","l<bad>");
   &iswp($lc_x,"</bad>","</bad>l");
+  &iswp($lc_x,"<bibr>","l<bibr>");
+  &iswp($lc_x,"</bibr>","</bibr>l");
   &iswp($lc_x,"<fdload>","l<fdload>");
   &iswp($lc_x,"</fdload>","</fdload>l");
   &iswp($lc_x,"<span","l<span");
   &iswp($lc_x,"</span>","</span>l");
+  &iswp($lc_x,"<bibit>","<bibit>l");
+  &iswp($lc_x,"</bibit>","l</bibit>");
   
   while ( &swapo($cont,"\n\n<","\n<") ) { }
   while ( &swapo($cont,">\n\n",">\n") ) { }
