@@ -32,12 +32,12 @@ sub converto {
   }
 
 
-  $lc_ret .= '<span class = "bib_id">' . $lc_atrb->{'id'} . "</span> ";
-  $lc_ret .= '<span class = "bib_title">' . $lc_atrb->{'title'} . "</span>";
+  $lc_ret .= '<span class = "my_bib_id">' . $lc_atrb->{'id'} . "</span> ";
+  $lc_ret .= '<span class = "my_bib_title">' . $lc_atrb->{'title'} . "</span>";
 
   if ( exists $lc_atrb->{'author'} )
   {
-    $lc_ret .= ' <span class = "bib_author">' . $lc_atrb->{'author'} . "</span>";
+    $lc_ret .= ' <span class = "my_bib_author">' . $lc_atrb->{'author'} . "</span>";
   } 
   
 
