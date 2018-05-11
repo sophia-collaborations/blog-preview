@@ -76,7 +76,7 @@ sub doit {
       #($lc_sga,$lc_sgb) = split(quotemeta('<l/>'),$lc_x1);
       #$lc_dst .= '<a href = "' . $lc_sga . '" target = "_blank" rel = "nofollow noopener">';
       #$lc_dst .= $lc_sgb . '</a>';
-      $lc_dst .= '[<a href = "#bibref_' . $lc_x1 . '_x">*' . $lc_x1 . '</a>]';
+      $lc_dst .= '<a href = "#bibref_' . $lc_x1 . '_x"><span class = "my_bibref">' . $lc_x1 . '</span></a>';
     }
     ($lc_x1,$lc_src) = split(quotemeta('<bibr>'),$lc_x2,2);
     $lc_dst .= $lc_x1;
