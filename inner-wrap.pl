@@ -347,7 +347,7 @@ if ( $show_intermedia < 5 )
     }
   }
   print TAK "</head><body>\n";
-  print TAK "<div align = \"center\">\n";
+  print TAK "<div class = \"full_preview_frame\">\n";
   
   #print TAK "<table border = \"0\" width = \"700px\"><tr><td class = \"maino\">\n";
   print TAK "<table class = \"maino\"\"><tr><td class = \"maino\">\n";
