@@ -156,6 +156,7 @@ while ( -f $dsfile )
 
   # Added for accommodating the Psalms
   &sdivtag($cont,'psalm','psalm_text');
+  &sdivtag($cont,'psalmnote','psalmnote_text');
   &sdivtag($cont,'psalmbgn','psalm_bgn_text');
   &sdivtag($cont,'pstans1','stansa1');
   &sdivtag($cont,'pvra1','versea1');
