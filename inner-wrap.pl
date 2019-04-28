@@ -168,6 +168,9 @@ while ( -f $dsfile )
   &sdivtag($cont,'credits','sect_credits');
   &sdivtag($cont,'credit','each_credit');
 
+  # For additional media inserts
+  &sdivtag($cont,'mediafrm','my_media_frame');
+
   
   # And now the span-types
   &swapo($cont,'<key>','<span class = "my_keypoint">');
